@@ -57,6 +57,7 @@ class SpacedPage extends HookWidget {
           const SizedBox(height: 48),
           TextField(
             maxLines: null,
+            onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
             controller: inputController,
             decoration: InputDecoration(
               suffixIcon: IconButton(
@@ -68,6 +69,7 @@ class SpacedPage extends HookWidget {
           const SizedBox(height: 12),
           TextField(
             maxLines: null,
+            readOnly: true,
             controller: outputController,
             decoration: InputDecoration(
               suffixIcon: IconButton(
