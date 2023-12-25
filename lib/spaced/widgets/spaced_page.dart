@@ -14,13 +14,13 @@ class SpacedPage extends HookWidget {
       text: 'My text is more aesthetic than yours.',
     );
     final outputController = useTextEditingController(
-      text: inputController.text.split('').join(' '),
+      text: inputController.text.characters.join(' '),
     );
 
     useEffect(
       () {
         void listener() {
-          outputController.text = inputController.text.split('').join(' ');
+          outputController.text = inputController.text.characters.join(' ');
         }
 
         inputController.addListener(listener);
