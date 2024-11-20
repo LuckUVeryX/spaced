@@ -17,7 +17,7 @@ dependencies:
   url_launcher: ^6.3.0
 
 dev_dependencies:
-  custom_lint: ^0.6.4
+  custom_lint: ^0.7.0
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.4
