@@ -16,6 +16,9 @@ class SpacedPage extends HookWidget {
     final outputController = useTextEditingController(
       text: inputController.text.characters.join(' '),
     );
+    final outputController2 = useTextEditingController(
+      text: inputController.text.characters.join('  '),
+    );
 
     useEffect(
       () {
@@ -77,6 +80,25 @@ class SpacedPage extends HookWidget {
                 onPressed: () async {
                   await Clipboard.setData(
                     ClipboardData(text: outputController.text),
+                  );
+                  if (!context.mounted) return;
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(const SnackBar(content: Text('Copied')));
+                },
+              ),
+            ),
+          ),
+          const SizedBox(height: 12),
+          TextField(
+            maxLines: null,
+            readOnly: true,
+            controller: outputController2,
+            decoration: InputDecoration(
+              suffixIcon: IconButton(
+                icon: const FaIcon(Icons.copy),
+                onPressed: () async {
+                  await Clipboard.setData(
+                    ClipboardData(text: outputController2.text),
                   );
                   if (!context.mounted) return;
                   ScaffoldMessenger.of(context)
