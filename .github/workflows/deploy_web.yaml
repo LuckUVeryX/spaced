@@ -32,7 +32,7 @@ jobs:
           flutter config --enable-web
 
       - name: 🛠️ Build Web
-        run: flutter build web --release -t lib/main.dart --base-href /spaced/ --wasm
+        run: flutter build web --release -t lib/main.dart --base-href /spaced/
 
       - name: 🤖 Configure Github Actions
         run: |
